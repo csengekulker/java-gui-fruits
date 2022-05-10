@@ -17,9 +17,9 @@ public class MainFrame extends JFrame {
 
   public MainFrame() {
 
-    setComponents();
-    setMainPanel();
     setFrame();
+    setMainPanel();
+    setComponents();
   }
 
   private void setComponents() {
@@ -28,8 +28,15 @@ public class MainFrame extends JFrame {
       comboBox.addItem("Strawberry");
       comboBox.addItem("Mango");
 
-    this.list = new JList<>();
     this.defaultListModel = new DefaultListModel<>();
+    this.list = new JList<>(defaultListModel);
+
+    this.defaultListModel.addElement("First");
+    this.defaultListModel.addElement("Second");
+    this.defaultListModel.addElement("Third");
+
+    this.mainPanel.add(comboBox, BorderLayout.NORTH);
+    this.mainPanel.add(list, BorderLayout.CENTER);
 
   }
 
@@ -40,7 +47,7 @@ public class MainFrame extends JFrame {
       new BorderLayout()
     );
 
-    this.mainPanel.add(comboBox);
+
     this.add(mainPanel);
 
   }
