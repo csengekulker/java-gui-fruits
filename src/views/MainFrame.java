@@ -1,11 +1,19 @@
 package views;
+import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;
+  JComboBox<String> comboBox;
+
+  JList<String> list;
+  DefaultListModel<String> defaultListModel;
 
   public MainFrame() {
 
@@ -15,6 +23,13 @@ public class MainFrame extends JFrame {
   }
 
   private void setComponents() {
+    this.comboBox = new JComboBox<>();
+      comboBox.addItem("Apple");
+      comboBox.addItem("Strawberry");
+      comboBox.addItem("Mango");
+
+    this.list = new JList<>();
+    this.defaultListModel = new DefaultListModel<>();
 
   }
 
@@ -24,6 +39,10 @@ public class MainFrame extends JFrame {
     this.mainPanel.setLayout(
       new BorderLayout()
     );
+
+    this.mainPanel.add(comboBox);
+    this.add(mainPanel);
+
   }
 
   private void setFrame() {
@@ -33,10 +52,6 @@ public class MainFrame extends JFrame {
     this.setVisible(true);
 
     // layout for window
-    this.setLayout(
-      new FlowLayout(
-
-      )
-    );
+    this.setLayout(new FlowLayout());
   }
 }
