@@ -1,16 +1,21 @@
 package views;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.util.concurrent.Flow;
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;
+  JPanel buttonPanel;
+
   JComboBox<String> comboBox;
+
+  JButton goButton;
 
   JList<String> list;
   DefaultListModel<String> defaultListModel;
@@ -18,11 +23,22 @@ public class MainFrame extends JFrame {
   public MainFrame() {
 
     setFrame();
+
     setMainPanel();
-    setComponents();
+    setPanels();
+
+    setMainPanelComponents();
+    setButtonPanelComponents();
+
   }
 
-  private void setComponents() {
+  private void setButtonPanelComponents() {
+    this.goButton = new JButton("Go");
+
+    this.buttonPanel.add(goButton);
+  }
+
+  private void setMainPanelComponents() {
     this.comboBox = new JComboBox<>();
       comboBox.addItem("Apple");
       comboBox.addItem("Strawberry");
@@ -40,13 +56,22 @@ public class MainFrame extends JFrame {
 
   }
 
+  private void setPanels() {
+    this.buttonPanel = new JPanel();
+    
+    //layout for buttonPanel
+    this.buttonPanel.setLayout(new FlowLayout());
+
+    this.mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+  }
+
   private void setMainPanel() {
     this.mainPanel = new JPanel();
 
+    // layout for mainPanel
     this.mainPanel.setLayout(
       new BorderLayout()
     );
-
 
     this.add(mainPanel);
 
