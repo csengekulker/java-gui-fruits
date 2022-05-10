@@ -7,7 +7,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.util.concurrent.Flow;
 
 public class MainFrame extends JFrame {
   JPanel mainPanel;
@@ -32,12 +31,6 @@ public class MainFrame extends JFrame {
 
   }
 
-  private void setButtonPanelComponents() {
-    this.goButton = new JButton("Go");
-
-    this.buttonPanel.add(goButton);
-  }
-
   private void setMainPanelComponents() {
     this.comboBox = new JComboBox<>();
       comboBox.addItem("Apple");
@@ -54,6 +47,12 @@ public class MainFrame extends JFrame {
     this.mainPanel.add(comboBox, BorderLayout.NORTH);
     this.mainPanel.add(list, BorderLayout.CENTER);
 
+  }
+
+  private void setButtonPanelComponents() {
+    this.goButton = new JButton("Go");
+
+    this.buttonPanel.add(goButton);
   }
 
   private void setPanels() {
@@ -85,5 +84,9 @@ public class MainFrame extends JFrame {
 
     // layout for window
     this.setLayout(new FlowLayout());
+  }
+
+  public JButton getGoButton() {
+    return this.goButton;
   }
 }
