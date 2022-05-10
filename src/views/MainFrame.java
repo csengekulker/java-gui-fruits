@@ -89,4 +89,12 @@ public class MainFrame extends JFrame {
   public JButton getGoButton() {
     return this.goButton;
   }
+
+  public DefaultListModel getDefaultListModel() {
+    return this.defaultListModel;
+  }
+
+  public JList getList() {
+    return this.list;
+  }
 }
